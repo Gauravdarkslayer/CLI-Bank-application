@@ -2,7 +2,9 @@
     Bank Application. Just some basic functionalities
 '''
 import os,time,datetime
-import tkinter
+from tkinter import *
+import tkinter.messagebox
+import tkinter as tk
 
 def main_screen():
     currentDT = datetime.datetime.now()
@@ -70,6 +72,11 @@ def logintime(start_time):
     a=time.strftime('%H:%M:%S', time.gmtime(sec))
     print('USer logged in for:')
     print("Time",a)
+    root = tk.Tk()
+    #root.overrideredirect(1)
+    root.withdraw()
+    root.attributes('-topmost',True)
+    tk.messagebox.showinfo("Time",a) #Output the time
     time.sleep(6)
 
 def signup():
@@ -122,7 +129,7 @@ def after_login(currentdata, currentaccount):
         else:
             print('No such information available')
     elif choose == 5:
-        print('LOgging you out')
+        print('Logging you out')
         time.sleep(1)
         
         logintime(start_time)
